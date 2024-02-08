@@ -1,16 +1,17 @@
 
 | CS-665       | Software Design & Patterns |
 |--------------|----------------------------|
-| Name         | FIRST_NAME LAST_NAME       |
-| Date         | MM/DD/YYYY                 |
-| Course       | Fall / Spring / Summer     |
-| Assignment # |                            |
+| Name         | Ratan Jagath Naik          |
+| Date         | 02/07/2024                 |
+| Course       | Spring 2024                |
+| Assignment # | 1                          |
 
 # Assignment Overview
-Please add a paragraph or two overviewing the objectives of the assignment.
+
+Developed a software application for a fully automated beverage vending machine. The software manages brewing processes for various coffee and tea beverages (Espresso, Americano, Latte Macchiato, Black Tea, Green Tea, Yellow Tea). Users can add milk and sugar, selecting 0 to 3 units each, with a maximum limit of 3 units per condiment. Implementation includes unit tests for functionality, and optionally calculates final beverage prices based on preset base prices ($2 for coffee, $0.50 per condiment).
 
 # GitHub Repository Link:
-https://github.com/{YOUR_USERNAME}/cs-665-assignment-{ASSIGNMENT_NUMBER}
+https://github.com/RatanJN/665_Assignment1
 
 # Implementation Description 
 
@@ -19,11 +20,23 @@ For each assignment, please answer the following:
 
 - Explain the level of flexibility in your implementation, including how new object types can
 be easily added or removed in the future.
+
+
+The implementation showcases high flexibility through the use of interfaces (BeverageStrategy, CondimentStrategy, and PricingStrategy) and abstract classes (Coffee and Tea). This design allows for easy addition or removal of new beverage types (like adding a new Cappuccino class) or condiments (e.g., CinnamonStrategy) without altering the core logic of the BeverageMachine class. New types can simply implement the required interfaces or extend the abstract classes. 
 - Discuss the simplicity and understandability of your implementation, ensuring that it is
 easy for others to read and maintain.
+
+
+The code is organized into clear, well-defined classes and interfaces, each responsible for a specific aspect of the beverage preparation process. The separation of concerns is evident in the distinction between beverage brewing (BeverageStrategy), pricing (PricingStrategy), and condiments (CondimentStrategy). This not only makes the code easier to read and understand but also simplifies maintenance. New developers can quickly grasp the structure and functionality of the system due to its modular design and the descriptive naming of classes and methods.
 - Describe how you have avoided duplicated code and why it is important.
+
+
+The abstract classes Coffee and Tea reduce code duplication by implementing the brew method, which is common across all coffee and tea variants. Subclasses only need to implement their specific brewing logic (if any) and pricing. Similarly, the CondimentStrategy interface allows for a generalized way to handle different condiments, avoiding the need to write repetitive code for each condiment addition. The use of inheritance and interfaces promotes code reuse and ensures that any changes in the common functionality need to be made in only one place, thus maintaining consistency across the application.
 - If applicable, mention any design patterns you have used and explain why they were
 chosen.
+
+
+For the design pattern aspect of the implementation, the Strategy Pattern is prominently used. This pattern is applied to define a set of interchangeable algorithms or strategies that can be switched at runtime. In this context, the `BeverageStrategy` for brewing different types of beverages and the `CondimentStrategy` for adding various condiments are examples of these interchangeable algorithms. The `BeverageMachine` class acts as the context, allowing the specific strategy (beverage type and condiments) to be set at runtime, thereby enabling the machine to prepare different kinds of drinks according to the strategies chosen. This use of the Strategy Pattern greatly enhances the flexibility of the system, allowing for easy extension and modification of beverage and condiment types without altering the core logic of the beverage preparation process.
 
 
 # Maven Commands
